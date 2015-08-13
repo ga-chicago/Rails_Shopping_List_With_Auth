@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  # http://localhost:3000/home/index
+  get '/' => 'home#index'
+  # HTTP verb '/resource' => 'controller#method'
 
   get 'home/new'
 
