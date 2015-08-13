@@ -11,8 +11,9 @@ class UsersController < ApplicationController
       redirect_to '/home'
     else
       @message = 'Passwords did not match.'
-      redirect_to '/users/signup'
-      #render '/users/new'
+      render '/users/new'
+      # render loads an erb view via path
+      # it looks for them insides /app/views
     end
 
   end
