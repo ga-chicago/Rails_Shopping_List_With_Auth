@@ -1,43 +1,53 @@
-<h1>Shoppy List</h1>
 
-<li><a href="/home/new">Add Item to list</a></li>
 
-<h4>List of products to purchase</h4>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Shoppy List</h1>
 
-<table class='table'>
+      <li><a href="/home/new">Add Item to list</a></li>
 
-  <thead>
-    <tr>
-      <td>
-        Product Name
-      </td>
-      <td>
-        Quantity
-      </td>
-      <td>
-        Check It Off
-      </td>
-    </tr>
-  </thead>
-  <tbody>
+      <h4>List of products to purchase</h4>
 
-<% @products.each do |item| %>
+      <table class='table table-striped'>
 
-  <tr>
-    <td>
-      <%= item.name %>
-    </td>
-    <td>
-      <%= item.quantity %>
-    </td>
-    <td>
-      <%= form_for item, url: {action: 'delete'} do |f| %>
-        <%= f.hidden_field :id %>
-        <%= f.submit 'Check off item from list' %>
+        <thead>
+          <tr>
+            <td>
+              Product Name
+            </td>
+            <td>
+              Quantity
+            </td>
+            <td>
+              Check It Off
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+
+      <% @products.each do |item| %>
+
+        <tr>
+          <td>
+            <%= item.name %>
+          </td>
+          <td>
+            <%= item.quantity %>
+          </td>
+          <td>
+            <%= form_for item, url: {action: 'delete'} do |f| %>
+              <%= f.hidden_field :id %>
+              <%= f.submit 'Check off item from list' %>
+            <% end %>
+          </td>
+        </tr>
+
       <% end %>
-    </td>
-  </tr>
+      </tbody>
+      </table>
+    </div>
 
-<% end %>
-</tbody>
-</table>
+  </div>
+
+</div>
