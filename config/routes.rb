@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
+
+  # login/sessions
+  get 'users/login'  => 'sessions#new'
+  post 'sessions/create' => 'sessions#create'
+  get 'users/logout' => 'sessions#delete'
+
+  # user registration
   get 'users/signup' => 'users#new'
   post 'users/create' => 'users#create'
 
+  # actual shopping list
   # http://localhost:3000/home/index
   get 'home' => 'home#index'
   # HTTP verb '/resource' => 'controller#method'
