@@ -19,17 +19,19 @@ class HomeController < ApplicationController
     puts '-----PARAMS-----'
     puts params
     puts '----------'
-    @product = Product.create(
-      :name => params[:product][:name],
-      :quantity => params[:product][:quantity].to_i
-    )
+    @product = Product.create(product_params)
 
   end
 
   def delete
-
     @product = Product.find(params[:product][:id]).destroy
+  end
 
+private
+## private functions that only HomeController can use
+
+  def product_params
+    params.require(:product).permit(:name, :quantity)
   end
 
 end
