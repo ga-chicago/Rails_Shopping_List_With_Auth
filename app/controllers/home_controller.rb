@@ -16,16 +16,19 @@ class HomeController < ApplicationController
 
   def create
 
-    @product.create(
-      :name => 'test',
-      :quantity '42'.to_i
+    puts '-----PARAMS-----'
+    puts params
+    puts '----------'
+    @product = Product.create(
+      :name => params[:product][:name],
+      :quantity => params[:product][:quantity].to_i
     )
 
   end
 
   def delete
 
-    @product.find(1).destroy
+    @product = Product.find(params[:product][:id]).destroy
 
   end
 

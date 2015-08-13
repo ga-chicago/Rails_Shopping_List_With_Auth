@@ -1,2 +1,11 @@
-<h1>Home#new</h1>
-<p>Find me in app/views/home/new.html.erb</p>
+<h3>Add Product to List</h3>
+
+<%= form_for @product, url: {action: 'create'}, html: {class: 'some-form'} do |f| %>
+
+  Name: <%= f.text_field :name %>
+  Quantity: <%= f.text_field :quantity, html: {type: 'number'} %>
+  <%= f.submit 'Add Item' %>
+
+<% end %>
+
+<li><a href="/home">Back to list</a></li>
