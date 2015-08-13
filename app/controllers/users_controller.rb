@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     else
       @message = 'Passwords did not match.'
       redirect_to '/users/signup'
+      #render '/users/new'
     end
 
   end
