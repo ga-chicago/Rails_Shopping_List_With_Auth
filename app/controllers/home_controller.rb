@@ -1,4 +1,9 @@
 class HomeController < ApplicationController
+
+  # beforea user can access a resource...
+  # we filter out those that are not logged in :)
+  before_filter :authorize
+
   def index
 
     # list all of the products!
